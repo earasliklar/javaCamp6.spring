@@ -1,9 +1,13 @@
 package com.hrms.entities.concretes;
 
 import java.util.Date;
+import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 import com.hrms.entities.abstracts.User;
@@ -32,5 +36,26 @@ public class Candidate extends User{
 
     @Column(name="date_of_birth",columnDefinition = "DATE")
     private Date dateOfBirth;
+    
+    @ManyToOne()
+    @JoinColumn(name = "candidate_education_id")
+    private CandidateEducaiton candidateEducaiton;
+    
+    @OneToMany(mappedBy = "candidate")
+    	
+    private List<CandidateExperience> candidateExperiences;
+    
+    @OneToMany(mappedBy = "candidate")
+    private List<CandidateForeignLanguage> candidateForeignLanguages;
+  
+    @OneToMany(mappedBy = "candidate")
+    private List<CandidateProgrammingLanguage> candidateProgrammingLanguages;
+    
+    @OneToMany(mappedBy = "candidate")
+    private List<CandidateLink> candidateLinks;
 
+    @OneToMany(mappedBy = "candidate")
+    private List<CandidateImage> candidateImages;
+
+	
 }

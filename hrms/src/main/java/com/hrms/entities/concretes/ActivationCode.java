@@ -31,6 +31,6 @@ public class ActivationCode {
 	 @Column(name="is_confirmed")
 	    private boolean isConfirmed;
 	 
-	 @Column(name="created_at", columnDefinition = "Date defult CURRENT_DATE")
+	 @Column(name="created_at", columnDefinition = "Date default CURRENT_DATE")
 		private LocalDate createAt = LocalDate.now();
 }
